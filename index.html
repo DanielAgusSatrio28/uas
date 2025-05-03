@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Tiket Wisata</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-ticket-alt"></i> Pesan Tiket Wisata</h1>
+            <p>Nikmati pengalaman liburan tak terlupakan dengan pemesanan mudah</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <section class="form-section" id="bookingForm">
+                <h2><i class="fas fa-user-circle"></i> Data Pemesan</h2>
+                <form id="bookingFormData">
+                    <div class="form-group">
+                        <label for="fullName">Nama Lengkap</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error" id="nameError">Nama lengkap harus diisi</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error" id="emailError">Email harus valid</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="error" id="phoneError">Nomor telepon harus diisi</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelDate">Tanggal Wisata</label>
+                        <input type="date" id="travelDate" name="travelDate" required>
+                        <div class="error" id="dateError">Tanggal harus diisi</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="participants">Jumlah Peserta</label>
+                        <input type="number" id="participants" name="participants" min="1" max="20" value="1" required>
+                        <div class="error" id="participantsError">Jumlah peserta minimal 1</div>
+                    </div>
+
+                    <h2 style="margin-top: 30px;"><i class="fas fa-map-marked-alt"></i> Pilih Tempat Wisata</h2>
+                    <div class="form-group">
+                        <select id="destination" name="destination" class="destination-select" required>
+                            <option value="">-- Pilih Destinasi --</option>
+                            <option value="bali">Bali - Tanah Lot</option>
+                            <option value="yogya">Yogyakarta - Candi Borobudur</option>
+                            <option value="lombok">Lombok - Pantai Pink</option>
+                            <option value="rajaampat">Raja Ampat - Pulau Wayag</option>
+                            <option value="bromo">Bromo - Gunung Bromo</option>
+                            <option value="labuanbajo">Labuan Bajo - Pulau Komodo</option>
+                            <option value="bandung">Bandung - Kawah Putih</option>
+                            <option value="bogor">Bogor - Kebun Raya Bogor</option>
+                            <option value="jogja">Jogja - Malioboro</option>
+                            <option value="surabaya">Surabaya - Tugu Pahlawan</option>
+                            <option value="medan">Medan - Danau Toba</option>
+                            <option value="makassar">Makassar - Pantai Losari</option>
+                            <option value="manado">Manado - Bunaken</option>
+                            <option value="padang">Padang - Jam Gadang</option>
+                            <option value="semarang">Semarang - Lawang Sewu</option>
+                        </select>
+                        <div class="error" id="destinationError">Pilih destinasi wisata</div>
+                    </div>
+
+                    <h2><i class="fas fa-suitcase"></i> Pilih Paket Wisata</h2>
+                    <div class="form-group">
+                        <div class="package-card" data-package="basic">
+                            <div class="package-title">Paket Basic</div>
+                            <div class="package-price">Rp <span class="price-amount">250.000</span> <span class="text-muted">/orang</span></div>
+                            <ul class="package-features">
+                                <li>Tiket masuk lokasi wisata</li>
+                                <li>Pemandu wisata</li>
+                                <li>Air mineral</li>
+                            </ul>
+                        </div>
+
+                        <div class="package-card" data-package="standard">
+                            <div class="package-title">Paket Standard</div>
+                            <div class="package-price">Rp <span class="price-amount">400.000</span> <span class="text-muted">/orang</span></div>
+                            <ul class="package-features">
+                                <li>Semua fasilitas Paket Basic</li>
+                                <li>Makan siang</li>
+                                <li>Transportasi antar lokasi</li>
+                                <li>Asuransi perjalanan</li>
+                            </ul>
+                        </div>
+
+                        <div class="package-card" data-package="premium">
+                            <div class="package-title">Paket Premium</div>
+                            <div class="package-price">Rp <span class="price-amount">600.000</span> <span class="text-muted">/orang</span></div>
+                            <ul class="package-features">
+                                <li>Semua fasilitas Paket Standard</li>
+                                <li>Akomodasi penginapan</li>
+                                <li>Makan 3 kali sehari</li>
+                                <li>Akses VIP ke semua atraksi</li>
+                                <li>Free souvenir</li>
+                            </ul>
+                        </div>
+                        <input type="hidden" id="selectedPackage" name="selectedPackage" required>
+                        <div class="error" id="packageError">Pilih salah satu paket</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequest">Permintaan Khusus</label>
+                        <textarea id="specialRequest" name="specialRequest" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-block">Lanjut ke Pembayaran</button>
+                </form>
+            </section>
+
+            <section class="summary-section">
+                <h2><i class="fas fa-receipt"></i> Ringkasan Pemesanan</h2>
+                <div id="orderSummary">
+                    <div class="summary-item">
+                        <span>Nama Pemesan:</span>
+                        <span class="summary-value" id="summaryName">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tanggal Wisata:</span>
+                        <span class="summary-value" id="summaryDate">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Destinasi Wisata:</span>
+                        <span class="summary-value" id="summaryDestination">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Jumlah Peserta:</span>
+                        <span class="summary-value" id="summaryParticipants">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Paket Wisata:</span>
+                        <span class="summary-value" id="summaryPackage">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Harga per Orang:</span>
+                        <span class="summary-value" id="summaryPrice">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Harga:</span>
+                        <span class="summary-value summary-total" id="summaryTotal">Rp 0</span>
+                    </div>
+                </div>
+
+                <div class="payment-methods hidden" id="paymentSection">
+                    <h2><i class="fas fa-credit-card"></i> Metode Pembayaran</h2>
+                    <div class="payment-method" data-method="bca">
+                        <img src="gambar/bankbca.jpeg" alt="BCA">
+                        <span>Bank BCA</span>
+                    </div>
+                    <div class="payment-method" data-method="mandiri">
+                        <img src="gambar/bankmandiri.jpeg" alt="Mandiri">
+                        <span>Bank Mandiri</span>
+                    </div>
+                    <div class="payment-method" data-method="bri">
+                        <img src="gambar/bankbri.jpeg" alt="BRI">
+                        <span>Bank BRI</span>
+                    </div>
+                    <div class="payment-method" data-method="gopay">
+                        <img src="gambar/gopay.jpeg" alt="Gopay">
+                        <span>Gopay</span>
+                    </div>
+                    <div class="payment-method" data-method="ovo">
+                        <img src="gambar/ovo.jpeg" alt="OVO">
+                        <span>OVO</span>
+                    </div>
+                    <div class="payment-method" data-method="Qris">
+                        <img src="gambar/qris.jpeg" alt="Qris">
+                        <span>Qris</span>
+                    </div>
+
+                    <input type="hidden" id="selectedPayment" name="selectedPayment" required>
+                    <div class="error" id="paymentError">Pilih metode pembayaran</div>
+
+                    <button class="btn btn-success btn-block hidden" id="confirmButton">Konfirmasi Pembayaran</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="container hidden" id="thankYouSection">
+        <div class="thank-you fade-in">
+            <i class="fas fa-check-circle"></i>
+            <h2>Pemesanan Berhasil!</h2>
+            <p>Terima kasih telah memesan tiket wisata melalui layanan kami. Detail pemesanan telah dikirim ke email Anda.</p>
+            <div id="bookingDetails"></div>
+            <button class="btn" id="newBookingButton">Pesan Tiket Baru</button>
+        </div>  
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

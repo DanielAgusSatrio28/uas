@@ -1,0 +1,445 @@
+:root {
+    --primary: #4a6fa5;
+    --secondary: #166088;
+    --accent: #4fc3f7;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --holiday: #e63946; /* Warna tambahan untuk tema liburan */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--blue);
+    line-height: 1.6;
+    /* Tambahan tema liburan */
+    background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(245, 247, 250, 0.9);
+}
+
+body {
+    color: var(--blue);
+    line-height: 1.6;
+    background-image: url('gambar/walpaper.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Diperlukan untuk dekorasi liburan */
+}
+
+/* Dekorasi liburan untuk container */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-image: repeating-linear-gradient(45deg, 
+        var(--holiday) 0px, var(--holiday) 20px, 
+        white 20px, white 40px);
+    border-radius: 20px 20px 0 0;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek lampu natal di header */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-image: radial-gradient(circle at 10px 5px, 
+        #ffd700 2px, transparent 3px);
+    background-size: 20px 10px;
+    animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.form-section, .summary-section {
+    flex: 1;
+    min-width: 300px;
+    background: blue;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(29, 245, 0, 0.959);
+}
+
+/* Dekorasi sudut liburan */
+.form-section::before, .summary-section::before {
+    content: "❄️";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 24px;
+    transform: rotate(20deg);
+    z-index: 1;
+}
+
+h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+}
+
+/* Efek kilau pada judul */
+h2::after {
+    content: "✨";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.radio-option input {
+    width: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek kilau pada tombol */
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+
+.btn:hover::after {
+    transform: scale(1);
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-success {
+    background-color: var(--success);
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.package-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-image: linear-gradient(to right, white 95%, rgba(230, 57, 70, 0.1));
+}
+
+.package-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.package-card.selected {
+    border: 2px solid var(--success);
+    background-color: rgba(40, 167, 69, 0.05);
+    position: relative;
+}
+
+/* Ikon hadiah untuk paket terpilih */
+.package-card.selected::after {
+    content: "🎁";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5rem;
+}
+
+.package-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.package-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 10px 0;
+}
+
+.package-features {
+    list-style-type: none;
+}
+
+.package-features li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.package-features li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--success);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.summary-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--holiday); /* Warna liburan */
+    margin-top: 20px;
+}
+
+.summary-value {
+    font-weight: 600;
+}
+
+.payment-methods {
+    margin-top: 30px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.payment-method:hover {
+    border-color: var(--accent);
+}
+
+.payment-method.selected {
+    border: 2px solid var(--success);
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+.payment-method img {
+    width: 40px;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.thank-you {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.thank-you i {
+    font-size: 5rem;
+    color: var(--holiday); /* Warna liburan */
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.thank-you h2 {
+    color: var(--holiday); /* Warna liburan */
+    border: none;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.thank-you p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.error {
+    color: var(--danger);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+input.invalid, select.invalid {
+    border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .container::before {
+        height: 10px;
+    }
+}
+
+/* Animasi fade in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animasi salju */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    color: #4fc3f7;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
